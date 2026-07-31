@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <title>مقاضي العائلة</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <style>body{background-color: rgb(255, 255, 255);}</style>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Cairo&display=swap" rel="stylesheet">
+
+  </head>
+  <body>
+
+    <h3 style="
+    position: absolute;
+    
+    bottom: 0px;
+    left: 80px;
+    font-family: 'Amiri', 'Cairo', sans-serif;
+    ">محسن الشمري. حقوق الموقع محفوظة</h3>
+    <input placeholder="المقاضي.." id="Input">
+    <button id="enterBtn">احفظ</button>
+    <div class="listBox">
+      <ul id="userList"></ul>
+    </div>
+    <style>
+      #Input {
+        position: absolute;
+        background-color: rgb(255, 199, 199);
+        border: 0;
+        border-radius: 100px;
+        width: 300px;
+        height: 50px;
+        transform: translate(-9%, 70%);
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: x-large;
+        border-color: blue;
+      }
+      #enterBtn {
+        position: absolute;
+        background-color: rgb(255, 198, 198);
+        border: 0;
+        width: 150px;
+        height: 35px;
+        border-radius: 100px;
+        transform: translate(-68%, 310%);
+        font-size: x-large;
+      }
+      #enterBtn:disabled {
+        position: absolute;
+        background-color: rgb(101, 101, 101);
+        border: 0;
+        width: 150px;
+        height: 35px;
+        border-radius: 100px;
+        transform: translate(-68%, 310%);
+        font-size: x-large;
+      }
+      .listBox {
+        position: absolute;
+        width: 300px;
+        height: 400px;
+        transform: translate(-10%, 42%);
+        background-color: rgb(255, 255, 255);
+        font-size: xx-large;
+        overflow-y: auto; 
+        overflow-x: hidden; 
+        word-wrap: break-word;
+        border-radius: 20px;
+      }
+    </style>
+
+    
+    <script>
+      //اذا المدخل فاضي عطل الزر
+      button = document.getElementById("enterBtn");
+      input = document.getElementById("Input")
+
+      button.addEventListener("click", () => {
+        button.disabled = true;
+        button.innerHTML = "انتظر"
+        const timeout = setTimeout(() => {button.disabled = false; button.innerHTML="احفظ"}, 3000);
+        
+      })  
+      
+    </script>
+
+
+
+
+
+
+    <script>
+     
+      //اخذ قيمة مدخل المستخدم مثلا برتقال ثم حفظها واستيرادها
+      let user = JSON.parse(localStorage.getItem("userInputSave")) || {};
+      let counter = Object.keys(user).length;
+
+      const userList = document.getElementById("userList");
+
+      function renderList() {
+        userList.innerHTML = ""; // clear old list
+        for (let key in user) {
+          const li = document.createElement("li");
+          li.textContent = user[key];
+
+          // Create delete button
+          const delBtn = document.createElement("button");
+          delBtn.textContent = "احذف";
+          delBtn.style.marginRight = "10px";
+          delBtn.style.marginTop = "3px"
+          delBtn.style.bottom = "7px"
+          delBtn.style.position = "relative";
+          delBtn.style.backgroundColor = "coral";
+          delBtn.style.border = "0";
+          delBtn.style.fontFamily = "'Amiri', 'Cairo', sans-serif";
+
+          delBtn.addEventListener("click", () => {
+            delete user[key];
+            localStorage.setItem("userInputSave", JSON.stringify(user));
+            renderList(); // refresh list
+          });
+
+          li.appendChild(delBtn);
+          userList.appendChild(li);
+        }
+      }
+
+      
+      document.getElementById("enterBtn").addEventListener("click", () => {
+        const input = document.getElementById("Input").value.trim();
+        if (input) {
+          counter++;
+          const newKey = `name${counter}`;
+          user[newKey] = input;
+
+          localStorage.setItem("userInputSave", JSON.stringify(user));
+          console.log(user);
+          document.getElementById("Input").value = ""; 
+          renderList();
+        }
+      });
+      //نظام حذف المدخلات
+      renderList();
+
+    </script>
+  </body>
+</html>
