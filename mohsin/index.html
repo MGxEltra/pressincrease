@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mohsin Personal Web</title>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    
+  </head>
+
+  <body>
+    
+    <script>
+      //Toggling Between Dark and Light Mode Script
+      let leftBarChangeColor = document.getElementById('toggleLeftBar')
+      let changeviewbtn = document.getElementById('Mode');
+      function Dark() {
+        document.body.style.backgroundColor = "rgb(38, 38, 38)"
+        document.body.style.color = "chartreuse";
+        
+      }
+      function Light() {
+        document.body.style.background = "linear-gradient(to right, #fffbd9, #d8f8fd)";
+        document.body.style.color = "black";
+        document.LeftBarButton.style.color = "red"
+                        
+      }
+      
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        Dark()
+      }
+
+      else {
+        Light()
+      }
+      changeviewbtn.addEventListener("click", () => {
+        changeviewbtn.blur()
+      })
+    </script>
+    <style>
+      #Welcoming {
+        
+        white-space: nowrap;
+        overflow: hidden;
+      }
+      .WelcomingCSS {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: xxx-large;
+        position: absolute;
+        left: 480px;
+        transform: translateY(0%);
+        
+      }
+    </style>
+    <div id="Welcoming" class="WelcomingCSS"></div>
+    <script>
+      //Mohsin's Personal Website Text Effect Script
+      var Welcoming = new Typed("#Welcoming", {
+        strings: ["Mohsin's Personal Website"],
+        typeSpeed: 70,
+        backSpeed: 30,
+        startDelay: 200,
+        backDelay: 1400,
+        showCursor: false,
+        loop: true
+      });
+    </script>
+
+    <style>
+      #toggleLeftBar {
+        background: transparent;
+        position: absolute;
+        width: 50px;
+        height: 51.5px;
+        font-size: x-large;
+        border: 0;
+        left: 10px;
+        transform: translateY(105%) translateX(220%);
+        cursor: pointer;
+        color: rgb(255, 0, 0);
+        white-space: nowrap;
+      }
+
+      #LeftBar {
+        background: transparent;
+        width: 100px;
+        
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: x-large;
+        left: -110px;
+        position:absolute;
+        transform: translateX(-100%);
+        transform: translateY(30%);
+        transition: transform 0.4s ease-in;
+        transition: transform 0.4s ease-out;
+        opacity: 0;
+        transform: translateX(-100%) translateY(30%);
+        opacity: 1;
+      }
+      #LeftBar.active {
+        transform: translateX(140%) translateY(30%);; 
+        opacity: 1;
+      }
+
+      .Calender {
+        cursor: pointer;
+        font-weight: 100;
+        font-size: xx-large;
+      }
+
+      .Subjects {
+        cursor: pointer;
+        font-weight: 100;
+        font-size: xx-large;
+      }
+
+      .links {
+        cursor: pointer;
+        font-weight: 100;
+        font-size: xx-large;
+      }
+
+      .StudyLog {
+        cursor: pointer;
+        font-weight: 100;
+        font-size: xx-large;
+        white-space: nowrap;
+      }
+    </style>
+
+    <button class="LeftBarButton" id="toggleLeftBar" tabindex="-1">⨁</button>
+    <h1 class="hotstaff" style="
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: xx-large;
+    transform: translateX(10%) translateY(99%);
+    position: absolute;
+    ">School</h1>
+    <script>
+      //Chaning the Button Icon to swith between close & open bar
+      const Changing_Shape = document.getElementById("toggleLeftBar")
+      Changing_Shape.addEventListener("click", () => {
+        if (Changing_Shape.innerText === "⨁") {
+          Changing_Shape.innerText = "⨂";
+        } else if (Changing_Shape.innerText = "⨂") {
+          Changing_Shape.innerText = "⨁";
+        } 
+        Changing_Shape.blur();
+      })
+    </script>
+    <div id="LeftBar">
+      <h1 class="Calender">Calender</h1>
+      <h1 class="Subjects"><br>Subjects</h1>
+      <h1 class="links"><br>Links</h1>
+      <h1 class="StudyLog"><br>Study Log</h1>
+    </div>
+    <script>
+      //Left Bar Code
+      const LeftBarBTN = document.getElementById('toggleLeftBar');
+      const LeftBarDiv = document.getElementById('LeftBar');
+      let toggle = 2
+      if (toggle === 2) {
+        LeftBarBTN.addEventListener("click", () => {
+          LeftBarDiv.classList.toggle("active");
+          toggle = 3
+      });
+      }
+      if (toggle === 3) {
+        LeftBarBTN.addEventListener("click", () => {
+          LeftBarDiv.classList.toggle("disabled");
+          toggle = 2
+      });
+      }
+
+    </script>
+
+
+  </body>
+</html>
