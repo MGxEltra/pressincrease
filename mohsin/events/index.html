@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Events</title>
+    <style>body{background: linear-gradient(to right, #feefd8, #d8f8fd);}</style>
+  </head>
+  <body>
+    <input placeholder="Event name.." id="EventName">
+    <hr style="position: absolute; height: 1px; width: 1601px; bottom: 600px; background-color: black; left: 0px;">
+    <label id="dayLabel">Day</label>
+    <select id="dayS">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+      <option value="11">11</option>
+      <option value="12">12</option>
+      <option value="13">13</option>
+      <option value="14">14</option>
+      <option value="15">15</option>
+      <option value="16">16</option>
+      <option value="17">17</option>
+      <option value="18">18</option>
+      <option value="19">19</option>
+      <option value="20">20</option>
+      <option value="21">21</option>
+      <option value="22">22</option>
+      <option value="23">23</option>
+      <option value="24">24</option>
+      <option value="25">25</option>
+      <option value="26">26</option>
+      <option value="27">27</option>
+      <option value="28">28</option>
+      <option value="29">29</option>
+      <option value="30">30</option>
+      <option value="31">31</option>
+    </select>
+    <label id="monthLabel">Month</label>
+    <select id="monthS">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+      <option value="11">11</option>
+      <option value="12">12</option>
+    </select>
+    <label id="yearLabel">Year</label>
+    <select id="yearS">
+      <option value="2026">2026</option>
+      <option value="2027">2027</option>
+    </select>
+    <button id="enterBtn">Save</button>
+    <div id="userBox">
+      <ul id="userList"></ul>
+    </div>
+
+    <style>
+      #enterBtn {
+        position: absolute;
+        width: 100px;
+        height: 30px;
+        bottom: 731px;
+        left: 950px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: x-large;
+        background-color: white;
+        border: 0;
+        border-radius: 20px;
+        cursor: pointer;
+      }
+      #EventName {
+        position: absolute;
+        width: 300px;
+        height: 30px;
+        font-size: x-large;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        left: 620px;
+        bottom: 730px;
+        border-radius: 10px;
+        border: 0;
+        outline: 0;
+      }
+      #userBox {
+        position: absolute;
+        font-size: xx-large;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        height: 500px;
+        width: 900px;
+        line-height: 70px;
+        left: 350px;
+        bottom: 70px;
+        overflow-y: auto; 
+        overflow-x: hidden; 
+        word-wrap: break-word;
+        background: linear-gradient(to left, #feefd8, #d8f8fd);
+        border-radius: 15px;
+        box-shadow: 0px 5px 6px rgba(0,0,0,0.3)
+      }
+      #dayS{
+        position: absolute;
+        left: 600px;
+        bottom: 650px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: large;
+        max-height: 150px;
+        overflow-y: auto;
+        border-radius: 10px;
+        border: 0;
+        cursor: pointer;
+      }
+      #monthS {
+        position: absolute;
+        left: 760px;
+        bottom: 650px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: large;
+        border-radius: 10px;
+        border: 0;
+        cursor: pointer;
+      }
+      #yearS {
+        position: absolute;
+        left: 900px;
+        bottom: 650px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: large;
+        border-radius: 10px;
+        border: 0;
+        cursor: pointer;
+      }
+      #dayLabel {
+        position: absolute;
+        left: 549px;
+        bottom: 649px;
+        font-size: x-large;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-weight: 400;
+      }
+      #monthLabel {
+        position: absolute;
+        left: 675px;
+        bottom: 649px;
+        font-size: x-large;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-weight: 400;
+      }
+      #yearLabel {
+        position: absolute;
+        left: 840px;
+        bottom: 649px;
+        font-size: x-large;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-weight: 400;
+      }
+      
+    </style>
+
+    <script>
+      const shortInput = document.getElementById("EventName");
+      const button = document.getElementById("enterBtn");
+
+      // When user presses Enter
+      shortInput.addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+          button.click();
+        } else {console.log("Not working")}
+      });
+
+
+      const selectDay = document.getElementById("dayS");
+      const selectMonth = document.getElementById("monthS");
+      const selectYear = document.getElementById("yearS");
+      // Get the selected value
+      let selectedDay = selectDay.value;
+      let selectedMonth = selectMonth.value;
+      let selectedYear = selectYear.value;
+
+      console.log("Selected day:", selectedDay);
+      console.log("Selected month:", selectMonth);
+      console.log("Selected month:", selectYear);
+
+      // Update variable when user changes selection
+      selectDay.addEventListener("change", function() {
+        selectedDay = this.value;
+        console.log("Now day:", selectedDay);
+      });
+      selectMonth.addEventListener("change", function() {
+        selectedMonth = this.value;
+        console.log("Now month:", selectedMonth);
+      });
+      selectYear.addEventListener("change", function() {
+        selectedYear = this.value;
+        console.log("Now year:", selectedYear);
+      });
+
+
+
+      let user = JSON.parse(localStorage.getItem("userInputSave")) || {};
+      let counter = Object.keys(user).length;
+
+      const userList = document.getElementById("userList");
+
+      function renderList() {
+        userList.innerHTML = ""; // clear old list
+        for (let key in user) {
+          const li = document.createElement("li");
+          li.textContent = user[key];
+
+          // Create delete button
+          const delBtn = document.createElement("button");
+          delBtn.textContent = "Remove";
+          delBtn.style.marginLeft = "15px";
+          delBtn.style.marginTop = "10px";
+          delBtn.style.fontFamily = "'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif"
+          delBtn.style.fontSize = "large";
+          delBtn.style.position = "relative";
+          delBtn.style.color = "darkred";
+          delBtn.style.backgroundColor = "rgb(255, 208, 208)";
+          delBtn.style.border = "0px"
+          delBtn.style.width = "82px"
+          delBtn.style.height = "30px"
+          delBtn.style.cursor = "pointer"
+
+          delBtn.addEventListener("click", () => {
+            delete user[key];
+            localStorage.setItem("userInputSave", JSON.stringify(user));
+            renderList(); // refresh list
+          });
+
+          li.appendChild(delBtn);
+          userList.appendChild(li);
+        }
+      }
+
+      //عند ضغط الزر يتم حفظ ما تم ادخاله
+      //let (selectedDay), (selectedMonth), (selectedYear)
+      document.getElementById("enterBtn").addEventListener("click", () => {
+        const input_eventName = document.getElementById("EventName").value.trim();
+        if (input_eventName.length === 0) {
+          alert("Type Event Name");
+          return;
+
+        }
+        const Date_Event = `${input_eventName} - ${selectedDay}/${selectedMonth}/${selectedYear}`
+        if (Date_Event) {
+          const random = Math.random();
+          const newKey = `name: ${random}`; console.log(newKey)
+          user[newKey] = Date_Event;
+
+          localStorage.setItem("userInputSave", JSON.stringify(user));
+          console.log(user);
+          document.getElementById("EventName").value = "";
+          document.getElementById("dayS").value = "1"; 
+          document.getElementById("monthS").value = "1"; 
+          document.getElementById("yearS").value = "2026"; 
+          renderList();
+        }
+      });
+      //نظام حذف المدخلات عن طريق الازرار
+      renderList();
+    </script>
+    
+  </body>
+</html>
